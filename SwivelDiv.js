@@ -1,18 +1,12 @@
 (function(swivDiv){
-	// Ex. initSwivelDiv("#divGuy",15,10)
-	// Note: Single Selectors only None of this -> initSwivelDiv("#thing.class #Guy")
+	// Ex. initSwivelDiv("div#divGuy",15,10)
 	swivDiv.initSwivelDiv = function(divName, maxSwivel, maxShadow){
 		// Find Div
-		if (divName.indexOf("#")==0){
-			var divElement = document.getElementById(divName.replace(/^#/,""));
-			divElement.onmousemove=function(e){touchTilt(e,maxSwivel,maxShadow)}
-			divElement.onmouseout=touchTiltReset;
-		}else if (divName.indexOf(".")==0){
-			var divElement = document.getElementByClassName(divName.replace(/^\./,""));
-			for (i=0;i<divElement.length;i++){
-				divElement[i].onmousemove=function(e){touchTilt(e,maxSwivel,maxShadow)}
-				divElement[i].onmouseout=touchTiltReset;
-			}
+		var divElement = document.querySelectorAll(divName);
+        console.log(divElement)
+          for (i=0;i<divElement.length;i++){
+              divElement[i].onmousemove=function(e){touchTilt(e,maxSwivel,maxShadow)}
+              divElement[i].onmouseout=touchTiltReset;
 		}
 	}
 	function removeSwivelDiv(divName){
