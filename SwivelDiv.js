@@ -1,4 +1,5 @@
-(function(swivDiv){
+var swivDiv = function(){
+	this = swivDiv;
 	// Ex. initSwivelDiv("div#divGuy",15,10)
 	swivDiv.initSwivelDiv = function(divName, maxSwivel, maxShadow){
 		// Find Div
@@ -43,4 +44,4 @@
 		e.target.style.transform = "rotateY(0deg) rotateX(0deg)";
 		e.target.style.boxShadow = "3px 3px 3px #333";
 	}
-})(window.swivDiv = window.swivDiv || {});
+}
